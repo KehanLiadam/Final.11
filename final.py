@@ -89,6 +89,7 @@ class Convert_List2Tree:
         node_1 = self.find(j)
         node_2 = self.find(k)
 #第二问 
+#creat a class
 class priorityqueue:
     def __init__(self):
         self.heap = BinaryTreeNode()
@@ -103,6 +104,7 @@ class priorityqueue:
         if parent_node.data > self.heap.find(i).data:
             self.heap.exchange(parent_index,i)
             self.remove(parent_index)
+    #exchange and remove the parent
     def shift_down(self, i):
 #remove down function to fit the heap property
         left_child_idx = self.heap.leftChild(i)
@@ -124,6 +126,9 @@ class priorityqueue:
             self.shift_down(min_idx)
   #Time Complexity O(log n) , 
   #Function to insert a  new element into the priority queue  
+  #Insert a new element at the end of the tree.
+  #If there is no node, a new node is created. 
+  # Otherwise (a node already exists) insert a new node at the end (the last node from left to right.
     def insert(self,key):
         node = ListNode(key)
         parent_index = self.heap.parent(self.size)
@@ -137,6 +142,7 @@ class priorityqueue:
             self.remove(self.size)
 #Time Complexity: O(log n) the same
 #Remove the smallest element in the priority queue
+#Select the element you want to delete, swap it with the last element, and delete the last element
     def del_min(self):
         mini = self.heap.root.data
         thelastnode = self.heap.find(self.size - 1)
